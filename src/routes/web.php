@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ProfileSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware('auth','verified')->group(function () {
+    Route::get('/', [ItemController::class, 'index'])->name('top');
+    Route::get('/mypage', [ProfileSettingController::class, 'show'])->name('profile.settings.show');
+    Route::post('/mypage', [ProfileSettingController::class, 'update'])->name('profile.settings.update');
 });
