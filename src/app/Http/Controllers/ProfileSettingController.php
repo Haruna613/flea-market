@@ -2,20 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileSettingController extends Controller
 {
     public function show()
     {
-        return view('auth.mypage');
+        return view('auth.mypage-profile');
     }
 
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
         $user = $request->user();
-        $user->profile_completed = true;
+
+        if ($request->hasFile('profile_image')) {
+            if ($user->profile_image_path) {
+                Storage::delete($user->profile_image_path);
+            }
+            $path = $request->file('profile_image')->store('public/avatars');
+            $user->profile_image_path = $path;
+        }
+
+        $user->username = $request->username;
+        $user->postal_code = $request->postal_code;
+        $user->address = $request->address;
+        $user->building_name = $request->building_name;
+
+        if (!$user->profile_completed) {
+            $user->profile_completed = true;
+        }
         $user->save();
 
         return redirect()->route('top');

@@ -21,6 +21,6 @@ Route::get('/', function () {
 
 Route::middleware('auth','verified')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('top');
-    Route::get('/mypage', [ProfileSettingController::class, 'show'])->name('profile.settings.show');
-    Route::post('/mypage', [ProfileSettingController::class, 'update'])->name('profile.settings.update');
+    Route::get('/mypage/profile', [ProfileSettingController::class, 'show'])->name('profile.settings.show');
+    Route::post('/mypage/profile', [ProfileSettingController::class, 'update'])->name('profile.settings.update');
 });

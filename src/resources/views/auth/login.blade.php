@@ -25,11 +25,21 @@
                     </span>
                     <input class="form__item-input" type="email" name="email" value="{{ old('email') }}">
                 </div>
+                <div class="form__error">
+                    @error('email')
+                    {{ $message }}
+                    @enderror
+                </div>
                 <div class="form__item">
                     <span class="form__item-title">
                         パスワード
                     </span>
                     <input class="form__item-input" type="password" name="password">
+                </div>
+                <div class="form__error">
+                    @error('password')
+                    {{ $message }}
+                    @enderror
                 </div>
                 <div class="form__button">
                     <button class="form__button-submit" type="submit">
