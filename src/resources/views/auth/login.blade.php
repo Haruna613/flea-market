@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
 </head>
 <body>
-    <header>
-        coachtech
+    <header class="header">
+        <div class="header__inner">
+            <img class="header__inner-logo" src="{{ asset('images/COACHTECHヘッダーロゴ.png') }}" alt="サイトロゴ">
+        </div>
     </header>
-    <main>
+    <main class="main">
         <div class="main__inner">
             <form class="form" action="/login" method="post">
                 @csrf
@@ -23,23 +25,23 @@
                     <span class="form__item-title">
                         メールアドレス
                     </span>
-                    <input class="form__item-input" type="email" name="email" value="{{ old('email') }}">
-                </div>
-                <div class="form__error">
-                    @error('email')
-                    {{ $message }}
-                    @enderror
+                    <input class="form__item-input" type="text" name="email" value="{{ old('email') }}">
+                    <div class="form__error">
+                        @error('email')
+                        {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__item">
                     <span class="form__item-title">
                         パスワード
                     </span>
                     <input class="form__item-input" type="password" name="password">
-                </div>
-                <div class="form__error">
-                    @error('password')
-                    {{ $message }}
-                    @enderror
+                    <div class="form__error">
+                        @error('password')
+                        {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__button">
                     <button class="form__button-submit" type="submit">
@@ -47,8 +49,8 @@
                     </button>
                 </div>
             </form>
-            <div class="link__register">
-                <a href="/register">
+            <div class="link">
+                <a class="link__register" href="/register">
                     会員登録はこちら
                 </a>
             </div>

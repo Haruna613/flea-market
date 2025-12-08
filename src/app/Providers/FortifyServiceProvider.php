@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Contracts\VerifyEmailViewResponse;
 use App\Http\Responses\VerifyEmailViewResponses;
+use Laravel\Fortify\Contracts\VerifyEmailResponse as VerifyEmailResponseContract;
+use App\Http\Responses\VerifyEmailResponse;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 
@@ -24,6 +26,8 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(VerifyEmailResponseContract::class, VerifyEmailResponse::class);
+
         $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
 
         $this->app->singleton(VerifyEmailViewResponse::class, VerifyEmailViewResponses::class);

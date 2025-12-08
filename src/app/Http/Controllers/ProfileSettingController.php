@@ -12,7 +12,8 @@ class ProfileSettingController extends Controller
 {
     public function show()
     {
-        return view('auth.mypage-profile');
+        $user = Auth::user();
+        return view('auth.mypage-profile', compact('user'));
     }
 
     public function update(ProfileRequest $request)
@@ -39,5 +40,4 @@ class ProfileSettingController extends Controller
 
         return redirect()->route('top');
     }
-
 }

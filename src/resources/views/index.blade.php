@@ -9,14 +9,47 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
 </head>
 <body>
-    <header>
-        coachtech
+    <header class="header">
+        <div class="header__item">
+            <div class="header__item-logo">
+                <img class="header-logo" src="{{ asset('images/COACHTECHヘッダーロゴ.png') }}" alt="サイトロゴ">
+            </div>
+            <div><!--検索機能--></div>
+            @if (Auth::check())
+                <div class="header__item-logout">
+                    <form class="logout-form" action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="logout-form__button">ログアウト</button>
+                    </form>
+                </div>
+                <div class="header__item-mypage">
+                    <a class="mypage-button" href="{{ route('profile') }}">
+                        マイページ
+                    </a>
+                </div>
+                <div class="header__item-sell">
+                    <a class="sell-button" href="{{ route('item.sell.show') }}">
+                        出品
+                    </a>
+                </div>
+            @else
+                <div class="header__item-login">
+                    <a class="login-button" href="{{ route('login') }}">
+                        ログイン
+                    </a>
+                </div>
+                <div class="header__item-mypage">
+                    <a class="mypage-button" href="{{ route('profile') }}">
+                        マイページ
+                    </a>
+                </div>
+                <div class="header__item-sell">
+                    <a class="sell-button" href="{{ route('item.sell.show') }}">
+                        出品
+                    </a>
+                </div>
+            @endif
+        </div>
     </header>
-    @if (Auth::check())
-    <form class="form" action="/logout" method="post">
-        @csrf
-        <button>ログアウト</button>
-    </form>
-    @endif
 </body>
 </html>

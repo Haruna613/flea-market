@@ -1,0 +1,142 @@
+.header {
+    background: #000;
+}
+
+.header__item {
+    padding: 1%;
+    display: flex;
+}
+
+.header__item-logo {
+    width: 20%;
+}
+
+.header-logo {
+    width: 100%;
+}
+
+.header__item-logout {}
+
+.logout-form {}
+
+.logout-form__button {
+    color: #fff;
+    border: none;
+    background-color: #000;
+}
+
+.header__item-mypage {}
+
+.mypage-button {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__item-sell {}
+
+.sell-button {
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.main{
+    width: 100%;
+}
+
+.main__inner{
+    width: 100%;
+}
+
+.user{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.user__image-preview {
+    width: 15%;
+    height: 130px;
+    margin: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+}
+
+.user__image-preview__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user__name {
+    width: 60%;
+    font-size: 22px;
+    margin: 80px 0;
+    font-weight: bold;
+}
+
+.user__profile-update {
+    width: 25%;
+    margin: 100px 0 0 0;
+}
+
+.update__link {
+    text-decoration: none;
+    color: #ee5550;
+    border: 1.5px solid #ee5550;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.tabs {
+    border-bottom: 1px solid #000;
+    width: 100%;
+    padding: 0 0 5px 150px;
+}
+
+.tab-button {
+    text-decoration: none;
+    color: #000;
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+.tab-button.is-active {
+    color: #ee5550;
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.tab-content__message {
+    text-align: center;
+    margin: 100px 0;
+    font-size: 20px;
+}
+
+.tab-content__item {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.tab-content__item-list {
+    margin: 50px 45px 10px 45px;
+}
+
+.tab-content__item--img {
+    width: 250px;
+    height: 250px;
+}

@@ -1,0 +1,176 @@
+.header {
+    background: #000;
+}
+
+.header__item {
+    padding: 1%;
+    display: flex;
+}
+
+.header__item-logo {
+    width: 20%;
+}
+
+.header-logo{
+    width: 100%;
+}
+
+.header__item-logout{
+
+}
+
+.logout-form{
+
+}
+
+.logout-form__button{
+    color: #fff;
+    border: none;
+    background-color: #000;
+}
+
+.header__item-mypage{
+
+}
+
+.mypage-button{
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__item-sell{
+
+}
+
+.sell-button{
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.main {
+    width: 100%;
+}
+
+.main__inner {
+    width: 38%;
+    margin: 0 auto;
+}
+
+.main__inner-title{
+    text-align: center;
+    font-size: 32px;
+}
+
+.main__content{
+    width: 100%;
+}
+
+.main__content-item:first-child{
+    display: flex;
+    width: 100%;
+}
+
+.image-preview:first-child{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+}
+
+.image-preview__img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.image-preview:nth-child(2) {
+    margin: 40px 0 0 30px;
+    padding: 2px 8px;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 3px;
+    height: 30px;
+}
+
+.main__content-item{
+    margin-top: 50px;
+}
+
+.item__name{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item__input{
+    width: 100%;
+    height: 40px;
+}
+
+.form__button{
+    width: 100%;
+    margin: 50px 0;
+}
+
+.form__button-submit{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ee5550;
+    color: #fff;
+    font-size: 18px;
+}
+
+.form__error{
+    color: #ff0000;
+}
+
+@media screen and (max-width: 480px) {
+    .main__inner-title {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    .image-preview:first-child {
+        width: 100px;
+        height: 50px;
+    }
+
+    .image-preview:nth-child(2) {
+        margin: 15px 0 0 20px;
+        font-size: 8px;
+        height: 20px;
+        width: 140px;
+    }
+
+    .main__content-item {
+        margin-top: 20px;
+    }
+
+    .item__name {
+        font-size: 12px;
+    }
+
+    .item__input {
+        height: 30px;
+        font-size: 10px;
+        border: 0.5px solid #000;
+    }
+
+    .form__button {
+        margin: 30px 0;
+    }
+
+    .form__button-submit {
+        height: 30px;
+        font-size: 14px;
+    }
+}

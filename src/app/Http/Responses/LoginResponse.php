@@ -5,6 +5,7 @@ namespace App\Http\Responses;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class LoginResponse implements LoginResponseContract
 {
@@ -19,7 +20,7 @@ class LoginResponse implements LoginResponseContract
         if ($user && $user->hasVerifiedEmail()) {
 
             if (!$user->profile_completed) {
-                return redirect()->route('profile.settings.show');
+                return redirect(RouteServiceProvider::HOME);
             }
 
             return redirect()->route('top');
