@@ -12,9 +12,37 @@ use App\Models\Condition;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('index');
+        $userId = Auth::id();
+        $currentTab = $request->query('tab');
+        $keyword = $request->query('keyword');
+
+        if ($currentTab === 'mylist' && $userId) {
+            $items = Auth::user()->likes()->with('item')->get()->pluck('item');
+
+            if ($keyword) {
+                $items = $items->filter(function ($item) use ($keyword) {
+
+                    return str_contains($item->name, $keyword);
+                });
+            }
+
+        } else {
+            $query = Item::query();
+
+            if ($userId) {
+                $query->where('user_id', '!=', $userId);
+            }
+
+            if ($keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            }
+
+            $items = $query->get();
+        }
+
+        return view('index', compact('items', 'currentTab', 'keyword'));
     }
 
     public function update(Request $request)
@@ -48,5 +76,14 @@ class ItemController extends Controller
         $item->categories()->sync($validated['item_category']);
 
         return redirect()->route('top');
+    }
+
+    public function showDetail($item_id)
+    {
+        $item = Item::withCount(['comments', 'likes'])
+                    ->with(['categories', 'condition', 'latestComment.user'])
+                    ->findOrFail($item_id);
+
+        return view('item', compact('item'));
     }
 }

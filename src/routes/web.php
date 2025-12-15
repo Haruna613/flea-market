@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileSettingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -18,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [ItemController::class, 'index'])->name('top');
+
+Route::get('/item/{item_id}', [ItemController::class, 'showDetail'])->name('item.detail');
 
 Route::middleware(['guest'])->group(function () {
 });
@@ -34,5 +38,9 @@ Route::middleware(['auth'])->group(function ()
         Route::get('/mypage/profile', [ProfileSettingController::class, 'show'])->name('profile.settings.show');
 
         Route::post('/mypage/profile', [ProfileSettingController::class, 'update'])->name('profile.settings.update');
+
+        Route::post('/items/{item}/like', [LikeController::class, 'toggle'])->name('item.like.toggle');
+
+        Route::post('/items/{item}/comments', [CommentController::class, 'store'])->name('item.comment.store');
     });
 });
