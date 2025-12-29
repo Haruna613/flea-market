@@ -57,4 +57,14 @@ class Item extends Model
     {
         return $this->hasOne(Comment::class)->latestOfMany();
     }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
+
+    public function isSold(): bool
+    {
+        return $this->order()->exists();
+    }
 }

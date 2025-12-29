@@ -6,37 +6,34 @@
     width: 70%;
     margin: 0 auto;
     display: flex;
+    align-items: center;
 }
 
 .user__image-preview {
-    width: 15%;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     margin: 50px;
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #ddd;
+    flex-shrink: 0;
 }
 
 .user__image-preview__img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    object-fit: cover;
 }
 
 .user__name {
-    width: 60%;
-    font-size: 22px;
-    margin: 80px 0;
+    flex-grow: 1;
+    font-size: 26px;
     font-weight: bold;
 }
 
 .user__profile-update {
-    width: 25%;
-    margin: 100px 0 0 0;
+    margin-left: 20px;
 }
 
 .update__link {
@@ -46,13 +43,13 @@
     padding: 10px 20px;
     border-radius: 3px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .tabs {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #ccc;
     width: 100%;
-    padding: 0 0 5px 150px;
+    padding: 50px 0 10px 15%;
 }
 
 .tab-button {
@@ -60,6 +57,7 @@
     color: #000;
     margin-right: 50px;
     font-weight: bold;
+    font-size: 18px;
 }
 
 .tab-button.is-active {
@@ -79,16 +77,116 @@
 .tab-content__item {
     width: 100%;
     display: flex;
-    list-style-type: none;
     flex-wrap: wrap;
-    margin: 0 auto;
+    list-style-type: none;
+    padding: 40px 10%;
+    gap: 15px;
+    margin: 0;
 }
 
 .tab-content__item-list {
-    margin: 50px 45px 10px 45px;
+    width: calc(25% - 15px);
+    box-sizing: border-box;
+}
+
+.item-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #f0f0f0;
 }
 
 .tab-content__item--img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tab-content__item-name {
+    margin: 10px 0;
+    color: #000;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab-content__item-list>div {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.sold-label {
+    position: absolute;
+    top: 20px;
+    left: -30px;
+    width: 140px;
+    height: 30px;
+    background-color: #ff4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transform: rotate(-45deg);
+}
+
+.sold-label span {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 768px) {
+    .user {
+        width: 90%;
+    }
+
+    .tabs {
+        padding-left: 5%;
+    }
+
+    .tab-content__item-list {
+        width: calc(25% - 15px);
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .user {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user__image-preview {
+        margin: 20px 0;
+    }
+
+    .user__name {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .user__profile-update {
+        margin: 10px 0 30px 0;
+    }
+
+    .tabs {
+        padding: 50px 0 10px 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .tab-button {
+        margin-right: 0;
+        font-size: 14px;
+    }
+
+    .tab-content__item-list {
+        width: calc(50% - 15px);
+    }
 }

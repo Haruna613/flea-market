@@ -13,7 +13,7 @@ class ProfileController extends Controller
 
         $listedItems = $user->items;
 
-        $purchasedItems = $user->purchases;
+        $purchasedItems = $user->purchasedItems;
 
         return view('auth.mypage', compact('listedItems', 'purchasedItems'));
     }

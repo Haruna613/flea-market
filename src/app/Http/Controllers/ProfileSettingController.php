@@ -28,7 +28,7 @@ class ProfileSettingController extends Controller
             $user->profile_image_path = $path;
         }
 
-        $user->username = $request->username;
+        $user->name = $request->name;
         $user->postal_code = $request->postal_code;
         $user->address = $request->address;
         $user->building_name = $request->building_name;

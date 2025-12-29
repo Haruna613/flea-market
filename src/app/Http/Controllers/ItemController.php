@@ -15,39 +15,32 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $userId = Auth::id();
-        $currentTab = $request->query('tab');
+        $currentTab = $request->query('tab', 'all');
         $keyword = $request->query('keyword');
 
-        if ($currentTab === 'mylist' && $userId) {
-            $items = Auth::user()->likes()->with('item')->get()->pluck('item');
+        if ($currentTab === 'mylist') {
+            if ($userId) {
+                $items = Auth::user()->likes()->with('item')->get()->pluck('item');
 
-            if ($keyword) {
-                $items = $items->filter(function ($item) use ($keyword) {
-
-                    return str_contains($item->name, $keyword);
-                });
+                if ($keyword) {
+                    $items = $items->filter(function ($item) use ($keyword) {
+                        return str_contains($item->name, $keyword);
+                    });
+                }
+            } else {
+                $items = collect();
             }
-
         } else {
             $query = Item::query();
-
             if ($userId) {
                 $query->where('user_id', '!=', $userId);
             }
-
             if ($keyword) {
                 $query->where('name', 'LIKE', "%{$keyword}%");
             }
-
             $items = $query->get();
         }
-
         return view('index', compact('items', 'currentTab', 'keyword'));
-    }
-
-    public function update(Request $request)
-    {
-        return redirect()->route('home');
     }
 
     public function show()
@@ -60,8 +53,7 @@ class ItemController extends Controller
     public function store(ExhibitionRequest $request)
     {
         $validated = $request->validated();
-
-        $path = $validated['item_image']->store('public/item_images');
+        $path = $request->file('item_image')->store('public/item_images');
 
         $item = Item::create([
             'user_id' => Auth::id(),

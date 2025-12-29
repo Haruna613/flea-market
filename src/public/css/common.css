@@ -8,7 +8,7 @@
 }
 
 .header__item-logo {
-    width: 25%;
+    width: 35%;
     padding: 1%;
     margin-left: 2%;
 }
@@ -18,8 +18,8 @@
 }
 
 .header__item-search {
-    width: 42%;
-    margin-left: 4%;
+    width: 40%;
+    margin-left: 2%;
     padding: 0.5%;
 }
 
@@ -33,9 +33,9 @@
 }
 
 .header__item-logout {
-    width: 10%;
-    padding: 1%;
-    text-align: right;
+    width: 16%;
+    padding: 1% 0;
+    text-align: center;
     margin-top: 0.1%;
 }
 
@@ -47,9 +47,9 @@
 }
 
 .header__item-mypage {
-    width: 8%;
-    padding: 1%;
-    text-align: right;
+    width: 13%;
+    padding: 1% 0;
+    text-align: center;
     margin-top: 0.1%;
 }
 
@@ -60,28 +60,153 @@
 }
 
 .header__item-sell {
-    width: 8%;
+    width: 12%;
     padding: 1%;
-    margin-top: 0.1%;
+    margin-top: 0.2%;
 }
 
 .sell-button {
     color: #000;
     background-color: #fff;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-decoration: none;
     border-radius: 3px;
 }
 
 .header__item-login {
-    width: 8%;
-    padding: 1%;
-    text-align: right;
+    width: 11%;
+    padding: 1% 0;
+    text-align: center;
     margin-top: 0.1%;
+    margin-left: 1%;
 }
 
 .login-button {
     color: #fff;
     text-decoration: none;
+    background-color: #000;
     font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 50px;
+    }
+
+    .header__item-logo {
+        width: 25%;
+        padding: 2%;
+        margin: 0;
+    }
+
+    .header__item-search {
+        width: 35%;
+        padding: 1%;
+        margin: 0.5% 0 0 0;
+    }
+
+    .header__item-search--input {
+        padding: 5px 0 5px 10px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .header__item-logout {
+        width: 15%;
+        margin-top: 1%;
+    }
+
+    .logout-form__button {
+        font-size: 12px;
+    }
+
+    .header__item-mypage {
+        width: 13%;
+        margin-top: 1%;
+    }
+
+    .mypage-button {
+        font-size: 12px;
+    }
+
+    .header__item-sell {
+        width: 11%;
+        margin-top: 1%;
+    }
+
+    .sell-button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .header__item-login {
+        width: 11%;
+        margin-top: 1%;
+    }
+
+    .login-button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        height: 40px;
+    }
+
+    .header__item-logo {
+        width: 25%;
+        padding: 2%;
+        margin: 0;
+    }
+
+    .header__item-search {
+        width: 32%;
+        padding: 1.5%;
+        margin: 0;
+    }
+
+    .header__item-search--input {
+        height: 20px;
+        padding: 2px 0 2px 5px;
+        font-size: 9px;
+    }
+
+    .header__item-logout {
+        width: 16%;
+        margin-top: 1%;
+    }
+
+    .logout-form__button {
+        font-size: 10px;
+        padding-left: 1%;
+    }
+
+    .header__item-mypage {
+        width: 15%;
+        margin-top: 1%;
+    }
+
+    .mypage-button {
+        font-size: 10px;
+    }
+
+    .header__item-sell {
+        width: 12%;
+        margin-top: 1%;
+    }
+
+    .sell-button {
+        padding: 2px 5px;
+        font-size: 10px;
+    }
+
+    .header__item-login {
+        width: 16%;
+        margin-top: 1%;
+    }
+
+    .login-button {
+        font-size: 9px;
+    }
 }

@@ -10,7 +10,7 @@
         商品の出品
     </h2>
     <div class="main__inner-form">
-        <form class="sell__form" method="post"  action="{{ route('item.store') }}" enctype="multipart/form-data">
+        <form class="sell__form" method="post"  action="{{ route('item.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
             <div class="sell__form-item">
                 <label class="sell__form-item__label" for="item-img">
@@ -74,10 +74,10 @@
                     商品の説明
                 </h3>
                 <div class="sell__form-item">
-                    <label class="sell__form-item__label" for="item-name" value="{{ old('item_name') }}">
+                    <label class="sell__form-item__label" for="item-name">
                         商品名
                     </label>
-                    <input class="sell__form-item__input" type="text" name="item_name" id="item-name" value="">
+                    <input class="sell__form-item__input" type="text" name="item_name" id="item-name" value="{{ old('item_name') }}">
                 </div>
                 <div class="error-message">
                     @error('item_name')
@@ -85,10 +85,10 @@
                     @enderror
                 </div>
                 <div class="sell__form-item">
-                    <label class="sell__form-item__label" for="item-brand" value="{{ old('item_brand') }}">
+                    <label class="sell__form-item__label" for="item-brand">
                         ブランド名
                     </label>
-                    <input class="sell__form-item__input" type="text" name="item_brand" id="item-brand" value="">
+                    <input class="sell__form-item__input" type="text" name="item_brand" id="item-brand"  value="{{ old('item_brand') }}">
                 </div>
                 <div class="error-message">
                     @error('item_brand')
@@ -96,10 +96,10 @@
                     @enderror
                 </div>
                 <div class="sell__form-item">
-                    <label class="sell__form-item__label" for="item-description" value="{{ old('item_description') }}">
+                    <label class="sell__form-item__label" for="item-description">
                         商品の説明
                     </label>
-                    <textarea class="sell__form-item__textarea" name="item_description" id="item-description" rows="4"></textarea>
+                    <textarea class="sell__form-item__textarea" name="item_description" id="item-description" rows="4">{{ old('item_description') }}</textarea>
                 </div>
                 <div class="error-message">
                     @error('item_description')
@@ -107,7 +107,7 @@
                     @enderror
                 </div>
                 <div class="sell__form-item">
-                    <label class="sell__form-item__label" for="item-price" value="{{ old('item_price') }}">
+                    <label class="sell__form-item__label" for="item-price">
                         販売価格
                     </label>
                     <div class="price-input-wrapper">

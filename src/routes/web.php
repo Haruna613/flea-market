@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileSettingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\StripeWebhookController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -23,8 +25,7 @@ Route::get('/', [ItemController::class, 'index'])->name('top');
 
 Route::get('/item/{item_id}', [ItemController::class, 'showDetail'])->name('item.detail');
 
-Route::middleware(['guest'])->group(function () {
-});
+Route::post('/stripe/webhook', [StripeWebhookController::class, 'handle'])->name('stripe.webhook');
 
 Route::middleware(['auth'])->group(function ()
 {
@@ -42,5 +43,14 @@ Route::middleware(['auth'])->group(function ()
         Route::post('/items/{item}/like', [LikeController::class, 'toggle'])->name('item.like.toggle');
 
         Route::post('/items/{item}/comments', [CommentController::class, 'store'])->name('item.comment.store');
+
+        Route::get('/purchase/{item_id}', [PurchaseController::class, 'showPurchase'])->name('item.purchase.show');
+
+        Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'showPurchaseAddress'])->name('purchase.address.show');
+
+        Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updatePurchaseAddress'])->name('purchase.address.update');
+
+        Route::post('/items/{item}/create-checkout-session', [PurchaseController::class, 'createCheckoutSession'])
+        ->name('purchase.create-checkout-session');
     });
 });

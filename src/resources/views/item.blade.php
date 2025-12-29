@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@php
+use Illuminate\Support\Str;
+@endphp
+
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/item.css') }}">
 @endsection
@@ -51,9 +56,15 @@
             </div>
         </div>
         <div class="item__purchase">
-            <a class="item__purchase-button" href="">
-                購入手続きへ
-            </a>
+            @if($item->isSold())
+                <button class="item__purchase-button item__purchase-button--sold" disabled style="background-color: #888; cursor: not-allowed;">
+                    SOLD OUT
+                </button>
+            @else
+                <a class="item__purchase-button" href="/purchase/{{ $item->id }}">
+                    購入手続きへ
+                </a>
+            @endif
         </div>
         <div class="item__details">
             <h2 class="item__details-title">
@@ -96,7 +107,7 @@
                     <div class="comment-user-info">
                         <img class="comment-user-img" src="{{ $item->latestComment->user->profile_image_path ? Storage::url($item->latestComment->user->profile_image_path) : asset('images/default-icon.png') }}" alt="ユーザーアイコン">
                         <span class="comment-username">
-                            {{ $item->latestComment->user->username ?? $item->latestComment->user->name }}
+                            {{ $item->latestComment->user->name }}
                         </span>
                     </div>
                     <p class="comment-body">
@@ -154,8 +165,12 @@
                         countSpan.text(currentCount - 1);
                     }
                 },
-                error: function(response) {
-                    alert('いいね処理に失敗しました。ログインしているか確認してください。');
+                error: function(xhr) {
+                    if (xhr.status === 401) {
+                        window.location.href = '/login';
+                    } else {
+                        alert('いいね処理に失敗しました。');
+                    }
                 }
             });
         });

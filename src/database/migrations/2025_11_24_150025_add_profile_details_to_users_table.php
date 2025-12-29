@@ -14,7 +14,6 @@ class AddProfileDetailsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-        $table->string('username')->nullable();
         $table->string('postal_code', 8)->nullable();
         $table->string('address')->nullable();
         $table->string('building_name')->nullable();

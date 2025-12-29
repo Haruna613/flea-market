@@ -24,14 +24,12 @@
                 </div>
             </div>
             <div class="main__content-item">
-                <label class="item__name" for="username">
-                    ユーザー名
+                <label class="item__name" for="name"> ユーザー名
                 </label>
-                <input class="item__input" type="text" name="username" id="username" value="{{ old('username', Auth::user()->username ?? Auth::user()->name) }}">
+                <input class="item__input" type="text" name="name" id="name" value="{{ old('name', Auth::user()->name) }}">
             </div>
             <div class="form__error">
-                @error('username')
-                {{ $message }}
+                @error('name') {{ $message }}
                 @enderror
             </div>
             <div class="main__content-item">
@@ -82,7 +80,6 @@
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('#preview-image').attr('src', e.target.result).show();
-                $('#preview-text').hide();
             }
             reader.readAsDataURL(e.target.files[0]);
         });

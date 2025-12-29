@@ -2,14 +2,14 @@
     width: 100%;
     border-bottom: 1px solid #ccc;
     height: 80px;
-    padding: 50px 0 10px 200px;
+    padding: 50px 0 10px 15%;
 }
 
 .tab-button {
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    margin-right: 70px;
+    margin-right: 5%;
     font-weight: bold;
 }
 
@@ -18,27 +18,130 @@
 }
 
 .item{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 50px 25px;
+    padding: 60px 30px;
+    gap: 15px;
+}
+
+.item__img{
+    width: calc(25% - 15px);
+    box-sizing: border-box;
 }
 
 .tab-content{
+    display: block;
+    width: 100%;
     text-decoration: none;
 }
 
 .tab-content__item-list{
+    width: 100%;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.tab-content__item-img{
-    width: 300px;
-    height: 300px;
-    margin: 0 25px;
+.tab-content__item-list-inner{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.item-image-wrapper {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.tab-content__item--img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
 }
 
 .tab-content__item-name{
-    margin: 5px 25px 20px 25px;
-    text-decoration: none;
+    margin: 10px 0 10px 10px;
     color: #000;
+    font-size: 16px;
+}
+
+.tab-content__item-list>div {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.sold-label {
+    position: absolute;
+    top: 5px;
+    left: -30px;
+    top: 20px;
+    width: 140px;
+    height: 30px;
+    background-color: #ff4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+.sold-label span {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: block;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .item__img {
+        width: calc(25% - 15px);
+    }
+
+    .sold-label {
+        top: 15px;
+        left: -35px;
+        width: 130px;
+    }
+
+    .tab-content__item-name {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tab-button {
+        font-size: 14px;
+    }
+
+    .item__img {
+        width: calc(50% - 15px);
+    }
+
+    .sold-label {
+        top: 12px;
+        left: -38px;
+        width: 120px;
+        height: 24px;
+    }
+
+    .sold-label span {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .tab-content__item-name {
+        font-size: 14px;
+    }
 }

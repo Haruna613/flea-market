@@ -24,7 +24,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'profile_completed',
-        'username',
         'postal_code',
         'address',
         'building_name',
@@ -55,9 +54,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Item::class);
     }
 
-    public function purchases()
-    {
-        return $this->belongsToMany(Item::class, 'purchases', 'user_id', 'item_id');
+    public function orders(): HasMany {
+        return $this->hasMany(Order::class);
+    }
+
+    public function purchasedItems(): BelongsToMany {
+        return $this->belongsToMany(Item::class, 'orders', 'user_id', 'item_id')
+        ->withTimestamps();
     }
 
     public function likes(): HasMany
