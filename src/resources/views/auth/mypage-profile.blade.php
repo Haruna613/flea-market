@@ -14,7 +14,7 @@
         <div class="main__content">
             <div class="main__content-item">
                 <div class="image-preview" id="image-preview-area">
-                    <img class="image-preview__img" src="{{ Auth::user()->profile_image_path ? Storage::url(Auth::user()->profile_image_path) : '' }}" id="preview-image" alt="プロフィール画像" style="display: {{ Auth::user()->profile_image_path ? 'block' : 'none' }};">
+                    <img class="image-preview__img" src="{{ Auth::user()->profile_image_path ? Storage::url(Auth::user()->profile_image_path) : '' }}" id="preview-image" alt="" style="display: {{ Auth::user()->profile_image_path ? 'block' : 'none' }};">
                 </div>
                 <div class="image-preview">
                     <input type="file" name="profile_image" id="profile_image" accept="image/jpeg, image/png" style="display: none;">
