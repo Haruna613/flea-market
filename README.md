@@ -59,7 +59,13 @@ php artisan key:generate
 php artisan migrate
 ```
 
-7. シーディングの実行
+7. ストレージのシンボリックリンク作成
+
+```bash
+php artisan storage:link
+```
+
+8. シーディングの実行
 
 ```bash
 php artisan db:seed
