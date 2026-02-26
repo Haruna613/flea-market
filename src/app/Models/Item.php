@@ -67,4 +67,9 @@ class Item extends Model
     {
         return $this->order()->exists();
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

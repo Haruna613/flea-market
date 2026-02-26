@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id')->constrained()->comment('購入者ID');
             $table->foreignId('item_id')->constrained()->comment('購入商品ID');
             $table->integer('price')->comment('購入時の価格');
-            $table->string('status')->default('pending')->comment('注文ステータス: pending, paid, shipped, completed, cancelled');
+            $table->string('status')->default('pending')->comment('注文ステータス: pending, paid, shipped, awaiting_review, completed, cancelled');
             $table->string('shipping_address_line1');
             $table->string('shipping_postal_code');
             $table->timestamps();

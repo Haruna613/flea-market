@@ -8,6 +8,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\StripeWebhookController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,5 +53,15 @@ Route::middleware(['auth'])->group(function ()
 
         Route::post('/items/{item}/create-checkout-session', [PurchaseController::class, 'createCheckoutSession'])
         ->name('purchase.create-checkout-session');
+
+        Route::get('/items/{item_id}/chat', [ChatController::class, 'index'])->name('chat.show');
+
+        Route::post('/items/{item_id}/chat', [ChatController::class, 'store'])->name('chat.store');
+
+        Route::patch('/chat/message/{message}', [ChatController::class, 'update'])->name('chat.update');
+
+        Route::delete('/chat/message/{message}', [ChatController::class, 'destroy'])->name('chat.destroy');
+
+        Route::post('/chat/review/{order_id}', [App\Http\Controllers\ChatController::class, 'storeReview'])->name('chat.review');
     });
 });

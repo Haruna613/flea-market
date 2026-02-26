@@ -4,10 +4,15 @@ erDiagram
     users ||--o{ comments : "コメントする"
     users ||--o{ likes : "いいねする"
     users ||--o{ orders : "購入する"
+    users ||--o{ messages : "メッセージを送る"
+    users ||--o{ reviews : "評価するまたは評価される"
 
     items ||--o{ comments : "コメントがつく"
     items ||--o{ likes : "いいねされる"
     items ||--o{ orders : "注文される"
+    items ||--o{ messages : "チャットが行われる"
+
+    orders ||--o{ reviews : "評価がつく"
 
     conditions ||--o{ items : "商品の状態"
 
@@ -91,6 +96,28 @@ erDiagram
         varchar shipping_address_line1 "NOT NULL"
         varchar shipping_building_name "NULL"
         varchar shipping_postal_code "NOT NULL"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    messages {
+        bigint id PK "NOT NULL"
+        bigint item_id FK "NOT NULL"
+        bigint user_id FK "NOT NULL"
+        text message_body "NOT NULL"
+        timestamp read_at "NULL"
+        varchar image_path "NULL"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    reviews {
+        bigint id PK "NOT NULL"
+        bigint order_id FK "NOT NULL"
+        bigint reviewer_id FK "NOT NULL"
+        bigint reviewee_id FK "NOT NULL"
+        int rating "NOT NULL"
+        text comment "NULL"
         timestamp created_at
         timestamp updated_at
     }

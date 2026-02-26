@@ -85,10 +85,15 @@ erDiagram
     users ||--o{ comments : "コメントする"
     users ||--o{ likes : "いいねする"
     users ||--o{ orders : "購入する"
+    users ||--o{ messages : "メッセージを送る"
+    users ||--o{ reviews : "評価するまたは評価される"
 
     items ||--o{ comments : "コメントがつく"
     items ||--o{ likes : "いいねされる"
     items ||--o{ orders : "注文される"
+    items ||--o{ messages : "チャットが行われる"
+
+    orders ||--o{ reviews : "評価がつく"
 
     conditions ||--o{ items : "商品の状態"
 
@@ -175,6 +180,28 @@ erDiagram
         timestamp created_at
         timestamp updated_at
     }
+
+    messages {
+        bigint id PK "NOT NULL"
+        bigint item_id FK "NOT NULL"
+        bigint user_id FK "NOT NULL"
+        text message_body "NOT NULL"
+        timestamp read_at "NULL"
+        varchar image_path "NULL"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    reviews {
+        bigint id PK "NOT NULL"
+        bigint order_id FK "NOT NULL"
+        bigint reviewer_id FK "NOT NULL"
+        bigint reviewee_id FK "NOT NULL"
+        int rating "NOT NULL"
+        text comment "NULL"
+        timestamp created_at
+        timestamp updated_at
+    }
 ```
 
 ## URL
@@ -185,7 +212,7 @@ erDiagram
 ## メール確認環境（MailHog）
 
 本プロジェクトでは、メール送信テスト用に MailHog を導入しています。
-会員登録時のメール認証などの確認が可能です。
+会員登録時のメール認証、商品取引完了時の出品者への通知などの確認が可能です。
 
 - **MailHog UI**: [http://localhost:8026/](http://localhost:8026/)
 

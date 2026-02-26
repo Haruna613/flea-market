@@ -14,7 +14,8 @@ class FixedItemsSeeder extends Seeder
      */
     public function run()
     {
-        $userId = 1;
+        $user1 = 1;
+        $user2 = 2;
         $conditionVeryGood = 1;
         $conditionGood = 2;
         $conditionUsed = 3;
@@ -22,7 +23,7 @@ class FixedItemsSeeder extends Seeder
 
         $itemsData = [
             [
-                'user_id' => $userId,
+                'user_id' => $user1,
                 'condition_id' => $conditionVeryGood,
                 'name' => '腕時計',
                 'price' => 15000,
@@ -31,7 +32,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Armani+Mens+Clock.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user1,
                 'condition_id' => $conditionGood,
                 'name' => 'HDD',
                 'price' => 5000,
@@ -40,7 +41,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/HDD+Hard+Disk.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user1,
                 'condition_id' => $conditionUsed,
                 'name' => '玉ねぎ３束',
                 'price' => 300,
@@ -49,7 +50,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/iLoveIMG+d.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user1,
                 'condition_id' => $conditionBad,
                 'name' => '革靴',
                 'price' => 4000,
@@ -58,7 +59,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Leather+Shoes+Product+Photo.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user1,
                 'condition_id' => $conditionVeryGood,
                 'name' => 'ノートPC',
                 'price' => 45000,
@@ -67,7 +68,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Living+Room+Laptop.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user2,
                 'condition_id' => $conditionGood,
                 'name' => 'マイク',
                 'price' => 8000,
@@ -76,7 +77,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Music+Mic+4632231.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user2,
                 'condition_id' => $conditionUsed,
                 'name' => 'ショルダーバッグ',
                 'price' => 3500,
@@ -85,7 +86,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Purse+fashion+pocket.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user2,
                 'condition_id' => $conditionBad,
                 'name' => 'タンブラー',
                 'price' => 500,
@@ -94,7 +95,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Tumbler+souvenir.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user2,
                 'condition_id' => $conditionVeryGood,
                 'name' => 'コーヒーミル',
                 'price' => 4000,
@@ -103,7 +104,7 @@ class FixedItemsSeeder extends Seeder
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg',
             ],
             [
-                'user_id' => $userId,
+                'user_id' => $user2,
                 'condition_id' => $conditionGood,
                 'name' => 'メイクセット',
                 'price' => 2500,

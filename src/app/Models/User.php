@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Review;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -63,6 +64,28 @@ class User extends Authenticatable implements MustVerifyEmail
         ->withTimestamps();
     }
 
+    public function getTradingItemsAttribute()
+    {
+        $userId = $this->id;
+
+        return \App\Models\Item::where(function($query) use ($userId) {
+            $query->where('user_id', $userId)
+                ->where(function($q) {
+                    $q->has('order')->orHas('messages');
+                });
+        })
+        ->orWhere(function($query) use ($userId) {
+            $query->whereHas('order', function($q) use ($userId) {
+                $q->where('user_id', $userId);
+            })
+            ->orWhereHas('messages', function($q) use ($userId) {
+                $q->where('user_id', $userId);
+            });
+        })
+        ->distinct()
+        ->get();
+    }
+
     public function likes(): HasMany
     {
         return $this->hasMany(Like::class);
@@ -71,5 +94,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function averageRating()
+    {
+        $average = $this->receivedReviews()->avg('rating');
+        return $average ? (int)round($average) : null;
+    }
+
+    public function receivedReviews()
+    {
+        return $this->hasMany(Review::class, 'reviewee_id');
     }
 }
