@@ -18,9 +18,9 @@
         <div class="main__inner">
             <form class="form" action="/login" method="post">
                 @csrf
-                <h2 class="form__title">
+                <h1 class="form__title">
                     ログイン
-                </h2>
+                </h1>
                 <div class="form__item">
                     <span class="form__item-title">
                         メールアドレス

@@ -17,9 +17,9 @@
 </div>
 <div class="item">
     @foreach($items as $item)
-    <div class="item__img">
-        <a class="tab-content" href="{{ route('item.detail', ['item_id' => $item->id]) }}">
-            <li class="tab-content__item-list">
+    <ul class="item__img">
+        <li class="tab-content__item-list">
+            <a class="tab-content" href="{{ route('item.detail', ['item_id' => $item->id]) }}">
                 <div class="tab-content__item-list-inner">
                     <div class="item-image-wrapper">
                         @if($item->image_path)
@@ -40,9 +40,9 @@
                 <p class="tab-content__item-name">
                     {{ $item->name }}
                 </p>
-            </li>
-        </a>
-    </div>
+            </a>
+        </li>
+    </ul>
     @endforeach
 </div>
 @endsection

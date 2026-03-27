@@ -34,7 +34,7 @@ use Illuminate\Support\Str;
                 </div>
             </div>
             <div class="purchase-form__item">
-                <h2 class="item-payment__title">支払い方法</h2>
+                <p class="item-payment__title">支払い方法</p>
                 <select  class="item-payment__method" name="payment_method" id="payment-method-select">
                     <option value="" disabled selected>選択してください</option>
                     <option value="convenience">コンビニ払い</option>
@@ -48,7 +48,7 @@ use Illuminate\Support\Str;
             </div>
             <div class="purchase-form__item">
                 <div class="item-shipping__header">
-                    <h2 class="item-shipping__title">配送先</h2>
+                    <p class="item-shipping__title">配送先</p>
                     <a  class="item-shipping__update" href="{{ route('purchase.address.show', ['item_id' => $item->id]) }}">変更する</a>
                 </div>
                 <div class="item-shipping__inner">

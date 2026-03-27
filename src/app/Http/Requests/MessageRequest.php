@@ -34,6 +34,7 @@ class MessageRequest extends FormRequest
         return [
             'message_body.required' => '本文を入力してください',
             'message_body.max'      => '本文は400文字以内で入力してください',
+            'image_path.image'      => '「.png」または「.jpeg」形式でアップロードしてください',
             'image_path.mimes'      => '「.png」または「.jpeg」形式でアップロードしてください',
         ];
     }

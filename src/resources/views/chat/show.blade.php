@@ -140,10 +140,10 @@
                 @enderror
                 <form class="chat-input-area__form" action="{{ route('chat.store', $item->id) }}" method="POST" enctype="multipart/form-data" id="chat-form">
                     @csrf
-                    <input class="chat-input-area__form-input" id="chat-input-{{ $item->id }}" type="text" name="message_body" placeholder="取引メッセージを記入してください" autocomplete="off">
+                    <input class="chat-input-area__form-input" id="chat-input-{{ $item->id }}" type="text" name="message_body" placeholder="取引メッセージを記入してください" autocomplete="off" value="{{ old('message_body') }}">
                     <div class="chat-input-area__form-buttons">
                         <label for="image-upload" class="image-label">画像を追加</label>
-                        <input type="file" name="image" id="image-upload" style="display:none;">
+                        <input type="file" name="image_path" id="image-upload" style="display:none;">
                         <button class="chat-submit-button" type="submit">
                             <img class="chat-submit-button--image" src="{{ asset('images/矢印ロゴ.png') }}" alt="矢印ロゴ">
                         </button>

@@ -131,13 +131,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#item_image').on('change', function(e){
+        $('#item_image').on('change', function(event){
             var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#preview-image').attr('src', e.target.result).show();
+            reader.onload = function(loadEvent) {
+                $('#preview-image').attr('src', loadEvent.target.result).show();
                 $('#preview-text').hide();
             }
-            reader.readAsDataURL(e.target.files[0]);
+            reader.readAsDataURL(event.target.files[0]);
         });
     });
 </script>

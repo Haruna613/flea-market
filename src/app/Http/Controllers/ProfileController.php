@@ -21,9 +21,9 @@ class ProfileController extends Controller
         })
         ->where(function($q) use ($user) {
             $q->where('user_id', $user->id)
-              ->orWhereHas('order', function($oq) use ($user) {
-                  $oq->where('user_id', $user->id);
-              });
+            ->orWhereHas('order', function($oq) use ($user) {
+                $oq->where('user_id', $user->id);
+            });
         })->get();
 
     foreach ($tradingItems as $item) {

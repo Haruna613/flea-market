@@ -15,9 +15,9 @@ use Illuminate\Support\Str;
 @csrf
     <div class="form__inner">
         <div class="form__inner-header">
-            <h2 class="form__inner-header--title">
+            <h1 class="form__inner-header--title">
                 住所の変更
-            </h2>
+            </h1>
         </div>
         <div class="form__inner-item">
             <span class="form__inner-item--title">郵便番号</span>

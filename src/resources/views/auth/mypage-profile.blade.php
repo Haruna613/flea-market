@@ -8,9 +8,9 @@
 <div class="main__inner">
     <form action="{{ route('profile.settings.update') }}" method="POST" enctype="multipart/form-data">
     @csrf
-        <h2 class="main__inner-title">
+        <h1 class="main__inner-title">
             プロフィール設定
-        </h2>
+        </h1>
         <div class="main__content">
             <div class="main__content-item">
                 <div class="image-preview" id="image-preview-area">
@@ -76,12 +76,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#profile_image').on('change', function(e) {
+        $('#profile_image').on('change', function(event) {
             var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#preview-image').attr('src', e.target.result).show();
+            reader.onload = function(loadEvent) {
+                $('#preview-image').attr('src', loadEvent.target.result).show();
             }
-            reader.readAsDataURL(e.target.files[0]);
+            reader.readAsDataURL(event.target.files[0]);
         });
     });
 </script>

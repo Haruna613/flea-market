@@ -18,9 +18,9 @@
         <div class="main__inner">
             <form class="form" action="/register" method="post">
                 @csrf
-                <h2 class="form__title">
+                <h1 class="form__title">
                     会員登録
-                </h2>
+                </h1>
                 <div class="form__item">
                     <span class="form__item-title">
                         ユーザー名
